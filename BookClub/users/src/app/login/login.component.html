@@ -1,0 +1,37 @@
+<div class="users-container">
+  <div class="users-form">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input
+          type="text"
+          name="userLogin"
+          [(ngModel)]="user.login"
+          [ngClass]="{ 'is-invalid': isRequired }"
+        />
+        <div class="invalid-feedback">
+          <div *ngIf="isRequired">Login is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="userPassword"
+          [(ngModel)]="user.password"
+          [ngClass]="{ 'is-invalid': isRequired }"
+        />
+        <div class="invalid-feedback">
+          <div *ngIf="isRequired">Password is required</div>
+          <div *ngIf="isCorrect">Login or password is not correct!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button>Enter</button>
+      </div>
+      <div class="form-group">
+        <button type="button" (click)="onClickSignUp()">Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>

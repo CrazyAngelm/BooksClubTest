@@ -1,0 +1,51 @@
+<div class="users-container">
+    <div class="users-form">
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="login">Login</label>
+          <input
+            type="text"
+            name="registerLogin"
+            [(ngModel)]="register.login"
+            [ngClass]="{ 'is-invalid': isRequired }"
+          />
+          <div class="invalid-feedback">
+            <div *ngIf="isRequired">Login is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="registerPassword"
+            [(ngModel)]="register.password"
+            [ngClass]="{ 'is-invalid': isRequired || isRepeatPassword }"
+          />
+          <div class="invalid-feedback">
+            <div *ngIf="isRequired">Password is required</div>
+            <div *ngIf="isRepeatPassword">Password is different</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="repeatPassword">Repeat Password</label>
+            <input
+              type="password"
+              name="registerRepeatPassword"
+              [(ngModel)]="register.repeatPassword"
+              [ngClass]="{ 'is-invalid': isRequired || isRepeatPassword }"
+            />
+            <div class="invalid-feedback">
+              <div *ngIf="isRequired">Repeat Password is required</div>
+              <div *ngIf="isRepeatPassword">Repeat Password is different</div>
+            </div>
+        </div>
+        <div class="form-group">
+          <button>Register</button>
+        </div>
+        <div class="form-group">
+          <button type="button" (click)="onClickLogin()">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
